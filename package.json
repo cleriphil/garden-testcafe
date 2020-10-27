@@ -1,0 +1,11 @@
+{
+  "name": "garden-testcafe",
+  "version": "1.0.0",
+  "description": "E2E testing for garden planner web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
