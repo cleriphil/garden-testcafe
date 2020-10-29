@@ -1,8 +1,10 @@
 import { Selector } from 'testcafe';
+import GardenPlannerPage from '../pageobjects/garden-planner-page.js';
 
 fixture `Getting Started`
-    .page `http://devexpress.github.io/testcafe/example`;
+    .page `https://www.pennys-garden-planner.com/`;
 
-test('My first test', async t => {
-    // Test code
+test('Garden planner grid displays on load', async t => {
+    await t
+        .expect(GardenPlannerPage.gardenGrid.exists).ok();
 });
