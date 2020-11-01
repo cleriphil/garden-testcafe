@@ -19,8 +19,14 @@ test('User is able to add a row', async t => {
 
 test('User is able to delete a row', async t => {   
     await t
-    .click(GardenPlannerPage.deleteRowBtn)
-    .click(GardenPlannerPage.deleteFirstRowOption)
-    .expect(GardenPlannerPage.thirdRowFirstCell.exists).notOk();
+        .click(GardenPlannerPage.deleteRowBtn)
+        .click(GardenPlannerPage.deleteFirstRowOption)
+        .expect(GardenPlannerPage.thirdRowFirstCell.exists).notOk();
 });
 
+test('User is able to add a plant to a cell', async t => {   
+    await t
+        .click(Selector('#r0c1'))
+        .click(Selector('.modal-body').child('.list-group').child('button').child().withText('Leeks'))
+        .expect(Selector('#r0c1').child('.plants').child('.plant').child('.leek').exists).ok();
+});
