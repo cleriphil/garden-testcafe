@@ -9,3 +9,11 @@ test('Garden planner grid displays on load', async t => {
         .expect(GardenPlannerPage.gardenGrid.exists).ok();
 });
 
+
+test('User is able to add a row', async t => {   
+    await t
+        .click(GardenPlannerPage.addRowBtn)
+        .click(GardenPlannerPage.addRowFirstDropDownOption)
+        .expect(Selector('#r4c0').exists).ok();
+});
+
