@@ -4,7 +4,7 @@
   "description": "E2E testing for garden planner web app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "testcafe chrome:headless tests/"
   },
   "author": "",
   "license": "ISC"
