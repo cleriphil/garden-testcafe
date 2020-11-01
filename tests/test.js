@@ -24,6 +24,20 @@ test('User is able to delete a row', async t => {
         .expect(GardenPlannerPage.thirdRowFirstCell.exists).notOk();
 });
 
+test('User is able to add a column', async t => {   
+    await t
+        .click(GardenPlannerPage.addColBtn)
+        .click(GardenPlannerPage.addColToLeftOption)
+        .expect(GardenPlannerPage.fifthColFirstCell.exists).ok();
+});
+
+test('User is able to delete a column', async t => {   
+    await t
+        .click(GardenPlannerPage.deleteColBtn)
+        .click(GardenPlannerPage.deleteFirstColOption)
+        .expect(GardenPlannerPage.fourthColFirstCell.exists).notOk();
+});
+
 test('User is able to add a plant to a cell', async t => {   
     await t
         .click(Selector('#r0c1'))
