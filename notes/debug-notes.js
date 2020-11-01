@@ -11,7 +11,7 @@ test('test', async t => {
 // OR 
 
 test('test', async t => {
-    const debugEl = GardenPlannerPage.addRowFirstDropDownOption.addCustomDOMProperties({
+    const debugEl = GardenPlannerPage.addRowToTopOption.addCustomDOMProperties({
         outerHTML: el => el.outerHTML
     });
     console.log('debugEl is ', await debugEl.outerHTML);

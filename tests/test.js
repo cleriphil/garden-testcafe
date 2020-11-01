@@ -13,7 +13,14 @@ test('Garden planner grid displays on load', async t => {
 test('User is able to add a row', async t => {   
     await t
         .click(GardenPlannerPage.addRowBtn)
-        .click(GardenPlannerPage.addRowFirstDropDownOption)
+        .click(GardenPlannerPage.addRowToTopOption)
         .expect(Selector('#r4c0').exists).ok();
+});
+
+test('User is able to delete a row', async t => {   
+    await t
+    .click(GardenPlannerPage.deleteRowBtn)
+    .click(GardenPlannerPage.deleteFirstRowOption)
+    .expect(Selector('#r3c0').exists).notOk();
 });
 
