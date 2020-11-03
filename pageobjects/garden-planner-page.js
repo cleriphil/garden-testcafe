@@ -6,6 +6,7 @@ class GardenPlannerPage {
         const deleteRowBtnSelector = Selector('#delete-row-btn');
         const addColBtnSelector = Selector('#add-col-btn');
         const deleteColBtnSelector = Selector('#delete-col-btn');
+        const firstRowSecondCell = Selector('#r0c1');
 
         this.gardenGrid = Selector('#gridContainer');
         
@@ -24,6 +25,10 @@ class GardenPlannerPage {
         this.deleteColBtn = deleteColBtnSelector;
         this.deleteFirstColOption = deleteColBtnSelector.sibling('div').child('a').nth(0);
         this.fourthColFirstCell = Selector('#r0c3');
+
+        this.firstRowSecondCell = firstRowSecondCell;
+        this.modalLeeks = Selector('.modal-body').child('.list-group').child('button').child().withText('Leeks');
+        this.firstRowSecondCellLeeks = firstRowSecondCell.child('.plants').child('.plant').child('.leek');
     }
 }
 
