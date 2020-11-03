@@ -29,6 +29,7 @@ class GardenPlannerPage {
         this.firstRowSecondCell = firstRowSecondCell;
         this.modalLeeks = Selector('.modal-body').child('.list-group').child('button').child().withText('Leeks');
         this.firstRowSecondCellLeeks = firstRowSecondCell.child('.plants').child('.plant').child('.leek');
+        this.modalClearBtn = Selector('.modal-body').child('button').child('span').withText('Clear plot');
     }
 }
 

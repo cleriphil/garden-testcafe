@@ -43,3 +43,13 @@ test('User is able to add a plant to a cell', async t => {
         .click(GardenPlannerPage.modalLeeks)
         .expect(GardenPlannerPage.firstRowSecondCellLeeks.exists).ok();
 });
+
+test('User is able to clear a cell', async t => {   
+    await t
+        .click(GardenPlannerPage.firstRowSecondCell)
+        .click(GardenPlannerPage.modalLeeks)
+        .expect(GardenPlannerPage.firstRowSecondCellLeeks.exists).ok()
+        .click(GardenPlannerPage.firstRowSecondCell)
+        .click(GardenPlannerPage.modalClearBtn)
+        .expect(GardenPlannerPage.firstRowSecondCellLeeks.exists).notOk();
+});
