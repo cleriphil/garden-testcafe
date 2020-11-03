@@ -4,8 +4,13 @@
   "description": "E2E testing for garden planner web app",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome:headless tests/"
+    "test": "testcafe chrome:headless tests/",
+    "test-html": "testcafe chrome:headless tests/ --reporter html:tests/myreports.html"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "testcafe-reporter-html": "^1.4.6",
+    "testcafe-reporter-spec": "^2.1.1"
+  }
 }
