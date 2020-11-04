@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "testcafe chrome:headless tests/",
-    "test-html": "testcafe chrome:headless tests/ --reporter html:tests/myreports.html"
+    "test-html": "testcafe chrome:headless tests/ --reporter html:tests/myreports.html",
+    "test-mobile": "testcafe \"chrome:emulation:device=iphone X\" tests/"
   },
   "author": "",
   "license": "ISC",
