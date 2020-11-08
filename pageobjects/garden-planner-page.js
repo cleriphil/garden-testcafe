@@ -9,9 +9,6 @@ class MenuItem {
 
 class GardenPlannerPage {
     constructor () {
-        const deleteRowBtnSelector = Selector('#delete-row-btn');
-        const addColBtnSelector = Selector('#add-col-btn');
-        const deleteColBtnSelector = Selector('#delete-col-btn');
         const firstRowSecondCell = Selector('#r0c1');
 
         this.gardenGrid = Selector('#gridContainer');
@@ -20,16 +17,16 @@ class GardenPlannerPage {
         this.addRowToTopOption = new MenuItem('add','row','To top');
         this.fourthRowFirstCell = Selector('#r4c0');
         
-        this.deleteRowBtn = deleteRowBtnSelector;
-        this.deleteFirstRowOption = deleteRowBtnSelector.sibling('div').child('a').withText('1');
+        this.deleteRowBtn = Selector('#delete-row-btn');
+        this.deleteFirstRowOption = new MenuItem('delete','row','1');
         this.thirdRowFirstCell = Selector('#r3c0');
 
-        this.addColBtn = addColBtnSelector; 
-        this.addColToLeftOption = addColBtnSelector.sibling('div').child('a').withText('To left');
+        this.addColBtn = Selector('#add-col-btn'); 
+        this.addColToLeftOption = new MenuItem('add','col','To left');
         this.fifthColFirstCell = Selector('#r0c4');
 
-        this.deleteColBtn = deleteColBtnSelector;
-        this.deleteFirstColOption = deleteColBtnSelector.sibling('div').child('a').withText('1');
+        this.deleteColBtn = Selector('#delete-col-btn');
+        this.deleteFirstColOption = new MenuItem('delete','col','1');
         this.fourthColFirstCell = Selector('#r0c3');
 
         this.firstRowSecondCell = firstRowSecondCell;

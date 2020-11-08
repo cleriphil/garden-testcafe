@@ -16,24 +16,24 @@ test('add a row', async t => {
         .expect(GardenPlannerPage.fourthRowFirstCell.exists).ok();
 });
 
-test('User is able to delete a row', async t => {   
+test('delete a row', async t => {   
     await t
         .click(GardenPlannerPage.deleteRowBtn)
-        .click(GardenPlannerPage.deleteFirstRowOption)
+        .click(GardenPlannerPage.deleteFirstRowOption.item)
         .expect(GardenPlannerPage.thirdRowFirstCell.exists).notOk();
 });
 
 test('User is able to add a column', async t => {   
     await t
         .click(GardenPlannerPage.addColBtn)
-        .click(GardenPlannerPage.addColToLeftOption)
+        .click(GardenPlannerPage.addColToLeftOption.item)
         .expect(GardenPlannerPage.fifthColFirstCell.exists).ok();
 });
 
 test('User is able to delete a column', async t => {   
     await t
         .click(GardenPlannerPage.deleteColBtn)
-        .click(GardenPlannerPage.deleteFirstColOption)
+        .click(GardenPlannerPage.deleteFirstColOption.item)
         .expect(GardenPlannerPage.fourthColFirstCell.exists).notOk();
 });
 
