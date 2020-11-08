@@ -7,4 +7,5 @@ fixture `Smoke Tests`
 
 test('Create a new user', async t => {   
     //code
+    //navigation, window size?
 });
