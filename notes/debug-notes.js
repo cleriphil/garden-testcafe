@@ -44,3 +44,13 @@ test('test', async t => {
     console.log('garden grid is', GardenPlannerPage.gardenGrid); //not good, returns [Function: __$$clientFunction$$]
 });
 
+//OTHER:
+
+class Cell {
+    constructor (x, y){
+        this.el = Selector('#r' + x + "c" + y);
+    }
+}
+
+
+this.fourthRowFirstCell = new Cell("4","0");
