@@ -40,22 +40,26 @@ test('delete a column', async t => {
 test('add a plant to a cell', async t => {   
     await t
         .click(GardenPlannerPage.firstRowSecondCell.button)
-        .click(GardenPlannerPage.modalLeeks.span)
-        .expect(GardenPlannerPage.firstRowSecondCellLeeks.div.exists).ok();
+        .click(GardenPlannerPage.modal.leeks.span)
+        .expect(GardenPlannerPage.firstRowSecondCell.leeks.div.exists).ok();
 });
 
 test('clear a cell', async t => {   
     await t
         .click(GardenPlannerPage.firstRowSecondCell.button)
-        .click(GardenPlannerPage.modalLeeks.span)
-        .expect(GardenPlannerPage.firstRowSecondCellLeeks.div.exists).ok()
+        .click(GardenPlannerPage.modal.leeks.span)
+        .expect(GardenPlannerPage.firstRowSecondCell.leeks.div.exists).ok()
         .click(GardenPlannerPage.firstRowSecondCell.button)
-        .click(GardenPlannerPage.modalClearBtn)
-        .expect(GardenPlannerPage.firstRowSecondCellLeeks.div.exists).notOk();
+        .click(GardenPlannerPage.modal.clearBtn)
+        .expect(GardenPlannerPage.firstRowSecondCell.leeks.div.exists).notOk();
 });
 
-// test('edit a cell', async t => {   
-//     await t
-//         .click(GardenPlannerPage.firstRowSecondCell.button)
-//         //code    
-// });
+test('edit a cell', async t => {   
+    await t
+        .click(GardenPlannerPage.firstRowSecondCell.button)
+        .click(GardenPlannerPage.modal.lettuce.span)
+        .expect(GardenPlannerPage.firstRowSecondCell.lettuce.div.exists).ok()
+        .click(GardenPlannerPage.firstRowSecondCell.button)
+        .click(GardenPlannerPage.modal.peas.span)
+        .expect(GardenPlannerPage.firstRowSecondCell.peas.div.exists).ok();
+});

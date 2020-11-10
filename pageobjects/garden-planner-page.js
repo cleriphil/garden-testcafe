@@ -45,9 +45,17 @@ class GardenPlannerPage {
         this.fourthColFirstCell = new Cell('0','3');
 
         this.firstRowSecondCell = new Cell('0','1');
-        this.modalLeeks = new ModalItem('Leeks');
-        this.firstRowSecondCellLeeks = new CellPlant(this.firstRowSecondCell.button,'leek');
-        this.modalClearBtn = Selector('.modal-body').child('button').child('span').withText('Clear plot');
+        this.firstRowSecondCell.leeks = new CellPlant(this.firstRowSecondCell.button,'leek');
+        this.firstRowSecondCell.lettuce = new CellPlant(this.firstRowSecondCell.button,'lettuce');
+        this.firstRowSecondCell.peas = new CellPlant(this.firstRowSecondCell.button,'pea');
+        
+
+        this.modal = {
+            clearBtn: Selector('.modal-body').child('button').child('span').withText('Clear plot'),
+            leeks: new ModalItem('Leeks'),
+            lettuce: new ModalItem('Lettuce'),
+            peas: new ModalItem('Peas')
+        }        
     }
 }
 
