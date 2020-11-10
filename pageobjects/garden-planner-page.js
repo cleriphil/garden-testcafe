@@ -2,13 +2,25 @@ import { Selector } from 'testcafe';
 
 class MenuItem {
     constructor (addDelete, rowColumn, text) {
-        this.item = Selector('#'+ addDelete + "-" + rowColumn + "-btn").sibling('div').child('a').withText(text);      
+        this.a = Selector('#'+ addDelete + "-" + rowColumn + "-btn").sibling('div').child('a').withText(text);      
     }
 }
 
 class Cell {
     constructor (x, y){
-        this.el = Selector('#r' + x + "c" + y);
+        this.button = Selector('#r' + x + "c" + y);
+    }
+}
+
+class ModalItem {
+    constructor (text){
+        this.span = Selector('.modal-body').child('.list-group').child('button').child().withText(text);
+    }
+}
+
+class CellPlant {
+    constructor (cell, text){
+        this.div = cell.child('.plants').child('.plant').child('.'+ text);
     }
 }
 
@@ -33,8 +45,8 @@ class GardenPlannerPage {
         this.fourthColFirstCell = new Cell('0','3');
 
         this.firstRowSecondCell = new Cell('0','1');
-        this.modalLeeks = Selector('.modal-body').child('.list-group').child('button').child().withText('Leeks');
-        this.firstRowSecondCellLeeks = this.firstRowSecondCell.el.child('.plants').child('.plant').child('.leek');
+        this.modalLeeks = new ModalItem('Leeks');
+        this.firstRowSecondCellLeeks = new CellPlant(this.firstRowSecondCell.button,'leek');
         this.modalClearBtn = Selector('.modal-body').child('button').child('span').withText('Clear plot');
     }
 }
