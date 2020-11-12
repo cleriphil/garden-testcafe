@@ -5,12 +5,15 @@ class PracticeSitePage {
         this.formsNav = Selector('#forms');
         this.RegisterNav = Selector('#register'); 
          
-        this.firstNameField = Selector('#registerForm').child('#firstName');     
-        this.lastNameField = Selector('#registerForm').child('#lastName');     
-        this.phoneField = Selector('#registerForm').child('#phone');     
-        this.countryField = Selector('#registerForm').child('#countries_dropdown_menu');     
-        this.emailField = Selector('#registerForm').child('#emailAddress');     
-        this.passwordField = Selector('#registerForm').child('#password');     
+        this.firstNameField = Selector('#registerForm').find('#firstName');     
+        this.lastNameField = Selector('#registerForm').find('#lastName');     
+        this.phoneField = Selector('#registerForm').find('#phone');     
+        this.countryField = Selector('#registerForm').find('#countries_dropdown_menu');     
+        this.emailField = Selector('#registerForm').find('#emailAddress');     
+        this.passwordField = Selector('#registerForm').find('#password');     
+
+        this.registerBtn = Selector('#registerBtn');
+        this.successMsg = Selector('#message').withText('The account has been successfully created!');
     }
 }
 

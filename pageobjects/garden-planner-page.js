@@ -48,7 +48,6 @@ class GardenPlannerPage {
         this.firstRowSecondCell.leeks = new CellPlant(this.firstRowSecondCell.button,'leek');
         this.firstRowSecondCell.lettuce = new CellPlant(this.firstRowSecondCell.button,'lettuce');
         this.firstRowSecondCell.peas = new CellPlant(this.firstRowSecondCell.button,'pea');
-        
 
         this.modal = {
             clearBtn: Selector('.modal-body').child('button').child('span').withText('Clear plot'),
