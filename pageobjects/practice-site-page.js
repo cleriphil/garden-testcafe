@@ -3,7 +3,8 @@ import { Selector } from 'testcafe';
 class PracticeSitePage {
     constructor () {
         this.formsNav = Selector('#forms');
-        this.RegisterNav = Selector('#register'); 
+        this.registerNav = Selector('#register'); 
+        this.loginNav = Selector('#login'); 
          
         this.firstNameField = Selector('#registerForm').find('#firstName');     
         this.lastNameField = Selector('#registerForm').find('#lastName');     
@@ -13,7 +14,15 @@ class PracticeSitePage {
         this.passwordField = Selector('#registerForm').find('#password');     
 
         this.registerBtn = Selector('#registerBtn');
-        this.successMsg = Selector('#message').withText('The account has been successfully created!');
+        this.successMsg = {
+            register: Selector('#message').withText('The account has been successfully created!'),
+            login:  Selector('#message').withText('You have successfully logged in!')
+        } 
+        
+        this.loginEmailField = Selector('#login').find('#email');
+        this.loginPasswordField = Selector('#login').find('#password');
+       
+        this.loginSubmitBtn = Selector('#submitLoginBtn');
     }
 }
 

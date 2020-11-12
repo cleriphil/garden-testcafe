@@ -8,7 +8,7 @@ fixture `Smoke Tests`
 test('Create a new user', async t => {   
     await t
         .click(PracticeSitePage.formsNav)
-        .click(PracticeSitePage.RegisterNav)
+        .click(PracticeSitePage.registerNav)
         .typeText(PracticeSitePage.firstNameField, 'test')
         .typeText(PracticeSitePage.lastNameField, 'test')
         .typeText(PracticeSitePage.phoneField, 'test')
@@ -16,5 +16,15 @@ test('Create a new user', async t => {
         .typeText(PracticeSitePage.emailField, 'test@example.com')
         .typeText(PracticeSitePage.passwordField, 'test')
         .click(PracticeSitePage.registerBtn)
-        .expect(PracticeSitePage.successMsg.exists).ok();
+        .expect(PracticeSitePage.successMsg.register.exists).ok();
+});
+
+test('Login', async t => {   
+    await t
+        .click(PracticeSitePage.formsNav)
+        .click(PracticeSitePage.loginNav)
+        .typeText(PracticeSitePage.loginEmailField, 'admin@admin.com')
+        .typeText(PracticeSitePage.loginPasswordField, 'admin123')
+        .click(PracticeSitePage.loginSubmitBtn)
+        .expect(PracticeSitePage.successMsg.login.exists).ok();
 });
