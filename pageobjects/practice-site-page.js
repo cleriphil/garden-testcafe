@@ -14,15 +14,17 @@ class PracticeSitePage {
         this.passwordField = Selector('#registerForm').find('#password');     
 
         this.registerBtn = Selector('#registerBtn');
-        this.successMsg = {
-            register: Selector('#message').withText('The account has been successfully created!'),
-            login:  Selector('#message').withText('You have successfully logged in!')
+        this.message = {
+            registerSuccess: Selector('#message').withText('The account has been successfully created!'),
+            loginSuccess:  Selector('#message').withText('You have successfully logged in!'),
+            loginError: Selector('#message').withText('Bad credentials! Please try again!')
         } 
         
         this.loginEmailField = Selector('#login').find('#email');
         this.loginPasswordField = Selector('#login').find('#password');
        
         this.loginSubmitBtn = Selector('#submitLoginBtn');
+        
     }
 }
 
