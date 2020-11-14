@@ -5,13 +5,17 @@ class PracticeSitePage {
         this.formsNav = Selector('#forms');
         this.registerNav = Selector('#register'); 
         this.loginNav = Selector('#login'); 
-         
-        this.firstNameField = Selector('#registerForm').find('#firstName');     
-        this.lastNameField = Selector('#registerForm').find('#lastName');     
-        this.phoneField = Selector('#registerForm').find('#phone');     
-        this.countryField = Selector('#registerForm').find('#countries_dropdown_menu');     
-        this.emailField = Selector('#registerForm').find('#emailAddress');     
-        this.passwordField = Selector('#registerForm').find('#password');     
+        
+        this.registerTxtFields = {
+            firstNameField: Selector('#registerForm').find('#firstName'),     
+            lastNameField: Selector('#registerForm').find('#lastName'),    
+            phoneField: Selector('#registerForm').find('#phone'),
+            countryField: Selector('#registerForm').find('#countries_dropdown_menu'),     
+            passwordField: Selector('#registerForm').find('#password')                 
+        }
+
+        this.registerEmailField = Selector('#registerForm').find('#emailAddress');
+
 
         this.registerBtn = Selector('#registerBtn');
         this.message = {

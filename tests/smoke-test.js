@@ -5,16 +5,17 @@ import PracticeSitePage from '../pageobjects/practice-site-page.js';
 fixture `Smoke Tests`
     .page `https://qa-automation-practice.netlify.app/`;
 
-test('Create a new user', async t => {   
+test('Create a new user', async t => {  
+    const registerFieldValues = Object.values(PracticeSitePage.registerTxtFields);
     await t
         .click(PracticeSitePage.formsNav)
-        .click(PracticeSitePage.registerNav)
-        .typeText(PracticeSitePage.firstNameField, 'test')
-        .typeText(PracticeSitePage.lastNameField, 'test')
-        .typeText(PracticeSitePage.phoneField, 'test')
-        //add countryField
-        .typeText(PracticeSitePage.emailField, 'test@example.com')
-        .typeText(PracticeSitePage.passwordField, 'test')
+        .click(PracticeSitePage.registerNav);
+    for (const value of registerFieldValues) {
+        await t
+            .typeText(value, 'test');
+    }
+    await t
+        .typeText(PracticeSitePage.registerEmailField, 'test@example.com')
         .click(PracticeSitePage.registerBtn)
         .expect(PracticeSitePage.message.registerSuccess.exists).ok();
 });
