@@ -9,15 +9,10 @@ fixture `Smoke Tests`
             .click(PracticeSitePage.nav.forms)
     });
 
-const registerFields = Object.values(PracticeSitePage.registerTxtFields);
-
 test('Create a new user', async t => {  
     await t
         .click(PracticeSitePage.nav.register);
-    for (const value of registerFields) {
-        await t
-            .typeText(value, 'test');
-    }
+    await PracticeSitePage.fillTxtFields();
     await t
         .typeText(PracticeSitePage.registerEmailField, 'test@example.com')
         .click(PracticeSitePage.registerSubmitBtn)
@@ -25,12 +20,8 @@ test('Create a new user', async t => {
 });
 
 test('Can\'t submit form with no email', async t => {   
-    await t
-        .click(PracticeSitePage.nav.register);
-    for (const value of registerFields) {
-        await t
-            .typeText(value, 'test');
-    }
+    await t.click(PracticeSitePage.nav.register);
+    await PracticeSitePage.fillTxtFields();
     await t
         .click(PracticeSitePage.registerSubmitBtn)
         .expect(PracticeSitePage.message.registerSuccess.exists).notOk()

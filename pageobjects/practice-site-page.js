@@ -1,4 +1,4 @@
-import { Selector } from 'testcafe';
+import { Selector, t } from 'testcafe';
 
 class PracticeSitePage {
     constructor () {
@@ -29,6 +29,14 @@ class PracticeSitePage {
        
         this.loginSubmitBtn = Selector('#submitLoginBtn');
         
+    }
+
+    async fillTxtFields() {
+        const registerFields = Object.values(this.registerTxtFields);
+        for (const value of registerFields) {
+            await t
+                .typeText(value, 'test');
+        }
     }
 }
 
