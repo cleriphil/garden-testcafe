@@ -8,22 +8,22 @@ fixture `Smoke Tests`
 test('Create a new user', async t => {  
     const registerFieldValues = Object.values(PracticeSitePage.registerTxtFields);
     await t
-        .click(PracticeSitePage.formsNav)
-        .click(PracticeSitePage.registerNav);
+        .click(PracticeSitePage.nav.forms)
+        .click(PracticeSitePage.nav.register);
     for (const value of registerFieldValues) {
         await t
             .typeText(value, 'test');
     }
     await t
         .typeText(PracticeSitePage.registerEmailField, 'test@example.com')
-        .click(PracticeSitePage.registerBtn)
+        .click(PracticeSitePage.registerSubmitBtn)
         .expect(PracticeSitePage.message.registerSuccess.exists).ok();
 });
 
 test('Login', async t => {   
     await t
-        .click(PracticeSitePage.formsNav)
-        .click(PracticeSitePage.loginNav)
+        .click(PracticeSitePage.nav.forms)
+        .click(PracticeSitePage.nav.login)
         .typeText(PracticeSitePage.loginEmailField, 'admin@admin.com')
         .typeText(PracticeSitePage.loginPasswordField, 'admin123')
         .click(PracticeSitePage.loginSubmitBtn)
@@ -32,8 +32,8 @@ test('Login', async t => {
 
 test('Login validation', async t => {   
     await t
-        .click(PracticeSitePage.formsNav)
-        .click(PracticeSitePage.loginNav)
+        .click(PracticeSitePage.nav.forms)
+        .click(PracticeSitePage.nav.login)
         .typeText(PracticeSitePage.loginEmailField, 'admin@admin.com')
         .typeText(PracticeSitePage.loginPasswordField, 'lorem ipsum')
         .click(PracticeSitePage.loginSubmitBtn)
