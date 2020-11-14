@@ -10,8 +10,7 @@ fixture `Smoke Tests`
     });
 
 test('Create a new user', async t => {  
-    await t
-        .click(PracticeSitePage.nav.register);
+    await t.click(PracticeSitePage.nav.register);
     await PracticeSitePage.fillTxtFields();
     await t
         .typeText(PracticeSitePage.registerEmailField, 'test@example.com')
