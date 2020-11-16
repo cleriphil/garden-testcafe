@@ -27,7 +27,16 @@ test('Can\'t submit form with no email', async t => {
         .expect(PracticeSitePage.registerEmailField.focused).eql(true);
 });
 
-test('Can\'t submit form with no values', async t => {   
+test('Can\'t submit form with no password', async t => {   
+    await t
+        .click(PracticeSitePage.nav.register)
+        .typeText(PracticeSitePage.registerEmailField, 'test@example.com')
+        .click(PracticeSitePage.registerSubmitBtn)
+        .expect(PracticeSitePage.message.registerSuccess.exists).notOk()
+        .expect(PracticeSitePage.registerTxtFields.password.focused).eql(true);
+});
+
+test('Can\'t submit register form with no values', async t => {   
     await t
         .click(PracticeSitePage.nav.register)
         .click(PracticeSitePage.registerSubmitBtn)
@@ -35,7 +44,7 @@ test('Can\'t submit form with no values', async t => {
         .expect(PracticeSitePage.registerEmailField.focused).eql(true);
 });
 
-test('Login', async t => {   
+test('Login with correct credentials', async t => {   
     await t
         .click(PracticeSitePage.nav.login)
         .typeText(PracticeSitePage.loginEmailField, 'admin@admin.com')
@@ -44,11 +53,19 @@ test('Login', async t => {
         .expect(PracticeSitePage.message.loginSuccess.exists).ok();
 });
 
-test('Login validation', async t => {   
+test('Can\'t submit form with wrong credentials', async t => {   
     await t
         .click(PracticeSitePage.nav.login)
         .typeText(PracticeSitePage.loginEmailField, 'admin@admin.com')
         .typeText(PracticeSitePage.loginPasswordField, 'lorem ipsum')
+        .click(PracticeSitePage.loginSubmitBtn)
+        .expect(PracticeSitePage.message.loginSuccess.exists).notOk()
+        .expect(PracticeSitePage.message.loginError.exists).ok();
+});
+
+test('Can\'t submit login form with no values', async t => {   
+    await t
+        .click(PracticeSitePage.nav.login)
         .click(PracticeSitePage.loginSubmitBtn)
         .expect(PracticeSitePage.message.loginSuccess.exists).notOk()
         .expect(PracticeSitePage.message.loginError.exists).ok();

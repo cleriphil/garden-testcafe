@@ -9,10 +9,10 @@ class PracticeSitePage {
         }
         
         this.registerTxtFields = {
-            firstNameField: Selector('#registerForm').find('#firstName'),     
-            lastNameField: Selector('#registerForm').find('#lastName'),    
-            phoneField: Selector('#registerForm').find('#phone'),
-            passwordField: Selector('#registerForm').find('#password')                 
+            firstName: Selector('#registerForm').find('#firstName'),     
+            lastName: Selector('#registerForm').find('#lastName'),    
+            phone: Selector('#registerForm').find('#phone'),
+            password: Selector('#registerForm').find('#password')                 
         }
 
         this.registerEmailField = Selector('#registerForm').find('#emailAddress');
