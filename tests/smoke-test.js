@@ -70,3 +70,19 @@ test('Can\'t submit login form with no values', async t => {
         .expect(PracticeSitePage.message.loginSuccess.exists).notOk()
         .expect(PracticeSitePage.message.loginError.exists).ok();
 });
+
+test('Recover password with valid email', async t => {
+    await t
+        .click(PracticeSitePage.nav.recoverPassword)
+        .typeText(PracticeSitePage.recoverEmailField, 'test@example.com')
+        .click(PracticeSitePage.recoverSubmitBtn)
+        .expect(PracticeSitePage.message.recoverSuccess.exists).ok();
+});
+
+test('Can\'t submit recover form with invalid email', async t => {
+    await t
+        .click(PracticeSitePage.nav.recoverPassword)
+        .typeText(PracticeSitePage.recoverEmailField, 'test')
+        .click(PracticeSitePage.recoverSubmitBtn)
+        .expect(PracticeSitePage.recoverEmailField.focused).eql(true);
+});
